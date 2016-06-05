@@ -14,7 +14,7 @@ class PatchExtractor
 public:
 	virtual const char* getName() = 0;
 
-	virtual void extract(cv::Mat& image, cv::KeyPoint& kpoint, double* patch, int size) = 0;
+	virtual void extract(cv::Mat& image, cv::KeyPoint& kpoint, double* patch, int size, bool shouldScale, bool shouldRotate) = 0;
 };
 
 

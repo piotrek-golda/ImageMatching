@@ -21,6 +21,8 @@ public:
 	double sigma = 0.001;
 	unsigned int resolution = 16;
 	bool weighting = false;
+	bool scaling = false;
+	bool rotating = false;
 
 	int patchSize = 41;
 

@@ -67,6 +67,7 @@ ProgramFlowFacade *FacadeFactory::constructFacade(std::string mainOptionsFilePat
 		exit(1);
 	}
 
+	int keyPointsLimit = mainReader.GetInteger("DETECTION","kpoints_limit",0);
 	std::string detectorName = mainReader.Get("DETECTION","detector", "missing");
 	std::transform(detectorName.begin(), detectorName.end(),detectorName.begin(), ::toupper);
 
@@ -78,6 +79,7 @@ ProgramFlowFacade *FacadeFactory::constructFacade(std::string mainOptionsFilePat
 
 	std::string keyMatcherName = mainReader.Get("MATCHING","keysMatching", "missing");
 	std::transform(keyMatcherName.begin(), keyMatcherName.end(),keyMatcherName.begin(), ::toupper);
+
 
 	switch( alg_types::str2int( detectorName.c_str() ) )
 	{
@@ -158,6 +160,8 @@ ProgramFlowFacade *FacadeFactory::constructFacade(std::string mainOptionsFilePat
 	homographyGetter_ = new HomographyGetter();
 
 
+
+
 	return new ProgramFlowFacade(detectorOptions_,detector_,descriptorOptions_,descriptor_,homographyGetter_,
-								 keysMatcherOptions_,keysMatcher_,descMatcherOptions_,descMatcher_);
+								 keysMatcherOptions_,keysMatcher_,descMatcherOptions_,descMatcher_,keyPointsLimit);
 }

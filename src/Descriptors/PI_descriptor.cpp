@@ -40,7 +40,7 @@ void PI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_poin
 	params.resolution = opts.resolution;
 	params.sigma = opts.sigma;
 
-	this->filterBoundKeyPoints(key_points,opts.patchSize,image.cols,image.rows);
+//	this->filterBoundKeyPoints(key_points,opts.patchSize,image.cols,image.rows);
 
 	PatchExtractor* extractor =  new SimplePatchExtractor();
 
@@ -50,20 +50,8 @@ void PI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_poin
 
 	for(int i = 0; i < key_points.size(); ++i)
 	{
-		extractor->extract(image,key_points[i],patch,opts.patchSize);
-//		std::string name = "patch0.csv";
-//		name[5] = i + '0';
-//		cv::FileStorage file(name.c_str(), cv::FileStorage::WRITE);
-//		cv::Mat p(opts.patchSize,opts.patchSize,CV_64F, patch);
-//		file << "patch" << p;
+		extractor->extract(image,key_points[i],patch,opts.patchSize, opts.scaling, opts.rotating);
 		PI::feature_persistence_image(opts.patchSize,opts.patchSize,patch,NULL,params,dscs[i],dscSize);
-//		std::cout << std::fixed;
-//		std::cout << std::setprecision(5);
-//		for(int j = 0; j < dscSize; ++j)
-//			std::cout << dscs[i][j] <<' ';
-//		std::cout << std::endl;
-//		cv::Mat ds(1,dscSize,CV_64F, dscs[i]);
-//		file << "description" << ds;
 	}
 
 	cv::Mat descriptionsDouble = cv::Mat(key_points.size(),dscSize,CV_64F);
@@ -71,35 +59,6 @@ void PI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_poin
 	for(int i = 0; i < key_points.size(); ++i)
 		for(int j = 0; j < dscSize; ++j)
 			descriptions.at<float>(i,j) = (float)dscs[i][j];
-//	descriptionsDouble.convertTo(descriptions,CV_32F);
-
-//	matTo8u(descriptionsDouble,descriptions);
-
-//	double rnd;
-//	for(int i = 0; i < descriptionsDouble.rows; i++)
-//		for(int j = 0; j < descriptionsDouble.cols; j++)
-//		{
-//			rnd = round(descriptionsDouble.at<double>(i,j)) ;
-//			if(rnd > (double)std::numeric_limits<int>::max()
-//					|| rnd < (double)std::numeric_limits<int>::min() )
-//			{
-//				descriptionsDouble.at<double>(i,j) = 0.;
-//			}
-//			else
-//			{
-//				descriptionsDouble.at<double>(i,j) = round(descriptionsDouble.at<double>(i,j)) ;
-//			}
-//		}
-
-//	std::cout<<descriptions <<std::endl;
-//
-//	double min;
-//	double max;
-//	cv::minMaxLoc(descriptionsDouble, &min, &max);
-//	std::cout<< (descriptionsDouble.type() == CV_64F) << std::endl;
-//	std::cout<<min <<' '<<max;
-
-//	getchar();
 
 	for(int i = 0; i < key_points.size(); ++i)
 	{
@@ -149,6 +108,8 @@ DescriptorOptions *PI_descriptorOptions::getConfiguration(INIReader cfgFile, std
 	opts->sigma = cfgFile.GetReal(section, "sigma",opts->sigma);
 	opts->ignoreOutliers = cfgFile.GetBoolean(section, "ignoreOutliers",opts->ignoreOutliers);
 	opts->weighting = cfgFile.GetBoolean(section, "weighting",opts->weighting);
+	opts->scaling = cfgFile.GetBoolean(section, "scaling",opts->scaling);
+	opts->rotating = cfgFile.GetBoolean(section, "rotating",opts->rotating);
 
 	return opts;
 }

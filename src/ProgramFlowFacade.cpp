@@ -18,6 +18,25 @@ int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homogra
 			"\nim2 key points number: "<< this->key_points2.size() << std::endl;
 
 	std::cout<< '\n';
+	std::cout<< "FILTERING KEY POINTS: " << this->detector_->getName() << "\n";
+
+	if(keyPointsLimit > 0)
+	{
+		auto compareFunc = []( const cv::KeyPoint& k1, const cv::KeyPoint& k2){return k1.response > k2.response;};
+		std::sort(key_points1.begin(),key_points1.end(),compareFunc);
+		std::sort(key_points2.begin(),key_points2.end(),compareFunc);
+		while(key_points1.size() > keyPointsLimit )
+			key_points1.pop_back();
+		while(key_points2.size() > keyPointsLimit )
+			key_points2.pop_back();
+	}
+
+	std::cout <<
+	"\nim1 key points number: " << this->key_points1.size() <<
+	"\nim2 key points number: "<< this->key_points2.size() << std::endl;
+
+
+	std::cout<< '\n';
 	std::cout<< "DESCRIPTION: " << this->descriptor_->getName() << "\n";
 	//DESCRIPTION
 	this->descriptor_->describe( image1,this->key_points1, this->descriptions1, *(this->descriptorOptions_) );

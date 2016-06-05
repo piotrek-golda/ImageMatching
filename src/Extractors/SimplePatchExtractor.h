@@ -16,7 +16,7 @@ private:
 public:
 	virtual const char *getName();
 
-	virtual void extract(cv::Mat &image, cv::KeyPoint& kpoint, double *patch, int size);
+	virtual void extract(cv::Mat &image, cv::KeyPoint& kpoint, double *patch, int size, bool shouldScale, bool shouldRotate);
 
 };
 
