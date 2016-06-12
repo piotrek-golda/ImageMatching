@@ -4,9 +4,49 @@
 #include <algorithm>
 #include <fstream>
 #include <opencv2/opencv.hpp>
+#include <ctime>
 #include "ProgramFlowFacade.h"
 #include "Interfaces/FacadeAbstractFactory.h"
 #include "FacadeFactory.h"
+#include "Detectors/ASIFT/compute_asift_keypoints.h"
+
+
+void printParams( cv::Algorithm* algorithm ) {
+	std::vector<std::string> parameters;
+	algorithm->getParams(parameters);
+
+	for (int i = 0; i < (int) parameters.size(); i++) {
+		std::string param = parameters[i];
+		int type = algorithm->paramType(param);
+		std::string helpText = algorithm->paramHelp(param);
+		std::string typeText;
+
+		switch (type) {
+			case cv::Param::BOOLEAN:
+				typeText = "bool";
+				break;
+			case cv::Param::INT:
+				typeText = "int";
+				break;
+			case cv::Param::REAL:
+				typeText = "real (double)";
+				break;
+			case cv::Param::STRING:
+				typeText = "string";
+				break;
+			case cv::Param::MAT:
+				typeText = "Mat";
+				break;
+			case cv::Param::ALGORITHM:
+				typeText = "Algorithm";
+				break;
+			case cv::Param::MAT_VECTOR:
+				typeText = "Mat vector";
+				break;
+		}
+		std::cout << "Parameter '" << param << "' type=" << typeText << " help=" << helpText << std::endl;
+	}
+}
 
 
 cv::Mat ReadMatFromTxt(std::string filename, int rows,int cols)
@@ -35,6 +75,11 @@ int main(int argc, char** argv )
 		<< " <detectionDescriptionConfig_File_Path> <matchingConfig_File_Path>\n";
 		exit(1);
 	}
+	std::srand ( unsigned ( std::time(0) ) );
+
+//	printParams( cv::FeatureDetector::create("MSER"));
+
+
 
 	cv::Mat image1;
 	cv::Mat image2;

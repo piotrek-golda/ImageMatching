@@ -33,6 +33,8 @@ private:
 	DescriptionsMatcherOptions* descMatcherOptions_ = NULL;
 	DescriptionsMatcher* descMatcher_ = NULL;
 	int keyPointsLimit = 0;
+	//determine is descriptor and detector same object
+	bool DETDSCFLAG = false;
 
 
 	std::vector< cv::KeyPoint > key_points1;
@@ -53,10 +55,10 @@ public:
 	ProgramFlowFacade(DetectorOptions *detectorOptions_, Detector *detector_, DescriptorOptions *descriptorOptions_,
 					  Descriptor *descriptor_, HomographyGetter *homographyGetter_,
 					  KeysMatcherOptions *keysMatcherOptions_, KeysMatcher *keysMatcher_,
-					  DescriptionsMatcherOptions *descMatcherOptions_, DescriptionsMatcher *descMatcher_, int kpointsLimit)
+					  DescriptionsMatcherOptions *descMatcherOptions_, DescriptionsMatcher *descMatcher_, int kpointsLimit, bool DETDSCFLAG)
 			: detectorOptions_(detectorOptions_), detector_(detector_), descriptorOptions_(descriptorOptions_),
 			  descriptor_(descriptor_), homographyGetter_(homographyGetter_), keysMatcherOptions_(keysMatcherOptions_),
-			  keysMatcher_(keysMatcher_), descMatcherOptions_(descMatcherOptions_), descMatcher_(descMatcher_), keyPointsLimit(kpointsLimit) { }
+			  keysMatcher_(keysMatcher_), descMatcherOptions_(descMatcherOptions_), descMatcher_(descMatcher_), keyPointsLimit(kpointsLimit), DETDSCFLAG(DETDSCFLAG) { }
 
 	int compute( cv::Mat& image1, cv::Mat& image2, cv::Mat homographyMat = cv::Mat() );
 

@@ -5,30 +5,45 @@
 #include "ProgramFlowFacade.h"
 #include "MatchesChecker.h"
 #include "Matchers/SimpleDescriptionsMatcher.h"
+#include "Helpers.h"
 
 int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homographyMat)
 {
 	std::cout<< '\n';
 	std::cout<< "DETECTION: " << this->detector_->getName() << "\n";
 	//DETECTION
-	this->detector_->detect( image1, this->key_points1, *(this->detectorOptions_) );
-	this->detector_->detect( image2, this->key_points2, *(this->detectorOptions_) );
+	#pragma omp sections
+	{
+		{this->detector_->detect(image1, this->key_points1, *(this->detectorOptions_));}
+		#pragma omp section
+		{this->detector_->detect(image2, this->key_points2, *(this->detectorOptions_));}
+	}
 	std::cout <<
 			"\nim1 key points number: " << this->key_points1.size() <<
 			"\nim2 key points number: "<< this->key_points2.size() << std::endl;
 
 	std::cout<< '\n';
-	std::cout<< "FILTERING KEY POINTS: " << this->detector_->getName() << "\n";
-
+	std::cout<< "FILTERING KEY POINTS: " << "\n";
 	if(keyPointsLimit > 0)
 	{
 		auto compareFunc = []( const cv::KeyPoint& k1, const cv::KeyPoint& k2){return k1.response > k2.response;};
-		std::sort(key_points1.begin(),key_points1.end(),compareFunc);
-		std::sort(key_points2.begin(),key_points2.end(),compareFunc);
-		while(key_points1.size() > keyPointsLimit )
-			key_points1.pop_back();
-		while(key_points2.size() > keyPointsLimit )
-			key_points2.pop_back();
+
+		#pragma omp sections
+		{
+			{
+				std::sort(key_points1.begin(), key_points1.end(), compareFunc);
+				while (key_points1.size() > keyPointsLimit)
+					key_points1.pop_back();
+			}
+			#pragma omp section
+			{
+				std::sort(key_points2.begin(), key_points2.end(), compareFunc);
+				while(key_points2.size() > keyPointsLimit )
+					key_points2.pop_back();
+			}
+		}
+
+
 	}
 
 	std::cout <<
@@ -39,19 +54,30 @@ int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homogra
 	std::cout<< '\n';
 	std::cout<< "DESCRIPTION: " << this->descriptor_->getName() << "\n";
 	//DESCRIPTION
-	this->descriptor_->describe( image1,this->key_points1, this->descriptions1, *(this->descriptorOptions_) );
-	this->descriptor_->describe( image2,this->key_points2, this->descriptions2, *(this->descriptorOptions_) );
+
+	time_t start = time(NULL);
+	#pragma omp sections
+	{
+		{this->descriptor_->describe(image1, this->key_points1, this->descriptions1, *(this->descriptorOptions_));}
+		#pragma omp section
+		{this->descriptor_->describe(image2, this->key_points2, this->descriptions2, *(this->descriptorOptions_));}
+	}
+
+	time_t finish = time(NULL);
+	std::cout<< finish - start << std::endl;
 	std::cout<<
 		"\nim1 descriptions size & number: " << this->descriptions1.size() <<
-		"\nim2 descriptions number: "<< this->descriptions2.size() << std::endl;
-
-
+		"\nim2 descriptions size & number: "<< this->descriptions2.size() << std::endl;
+	std::cout <<
+	"\nim1 key points number: " << this->key_points1.size() <<
+	"\nim2 key points number: "<< this->key_points2.size() << std::endl;
 
 	std::cout<< '\n';
 	std::cout << "DESCRIPTIONS MATCHER: " << descMatcher_->getName() << "\n";
 	//DETERMINING DESCRIPTIONS MATCHES
 	this->descMatcher_->match(this->descriptions1,this->descriptions2,this->descriptions_matches, *(this->descMatcherOptions_) );
 	std::cout << this->descriptions_matches.size() << '\n';
+
 
 	std::cout<< '\n';
 	//GETTING TRANSFORMATION
@@ -121,11 +147,12 @@ int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homogra
 
 ProgramFlowFacade::~ProgramFlowFacade()
 {
+	delete this->detector_;
 	delete this->descMatcher_;
 	delete this->descMatcherOptions_;
-	delete this->descriptor_;
+	if(!DETDSCFLAG)
+		delete this->descriptor_;
 	delete this->descriptorOptions_;
-	delete this->detector_;
 	delete this->detectorOptions_;
 	delete this->homographyGetter_;
 	delete this->keysMatcher_;

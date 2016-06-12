@@ -48,12 +48,12 @@ void PI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_poin
 	double** dscs = new double*[key_points.size()];
 	int dscSize;
 
+#pragma omp parallel for
 	for(int i = 0; i < key_points.size(); ++i)
 	{
 		extractor->extract(image,key_points[i],patch,opts.patchSize, opts.scaling, opts.rotating);
 		PI::feature_persistence_image(opts.patchSize,opts.patchSize,patch,NULL,params,dscs[i],dscSize);
 	}
-
 	cv::Mat descriptionsDouble = cv::Mat(key_points.size(),dscSize,CV_64F);
 	descriptions = cv::Mat(key_points.size(),dscSize,CV_32F);
 	for(int i = 0; i < key_points.size(); ++i)

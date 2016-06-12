@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <typeinfo>
 
 #include "FacadeFactory.h"
 #include "supported_algorithms.h"
@@ -18,6 +19,11 @@
 #include "Matchers/BruteForceDescriptionsMatcher.h"
 #include "Matchers/SimpleKeysMatcher.h"
 #include "Descriptors/PI_descriptor.h"
+#include "Descriptors/FREAK_descriptor.h"
+#include "Detectors/HARRIS_detector.h"
+#include "Detectors/MSER_detector.h"
+#include "Detectors/AGAST_detector.h"
+#include "Detectors/ASIFT_detector_descriptor.h"
 
 #define DET_NAME(n)  alg_types::detector_names[ n ]
 #define DSC_NAME(n)  alg_types::deascriptor_names[ n ]
@@ -67,6 +73,7 @@ ProgramFlowFacade *FacadeFactory::constructFacade(std::string mainOptionsFilePat
 		exit(1);
 	}
 
+	bool ASIFTFLAG = false;
 	int keyPointsLimit = mainReader.GetInteger("DETECTION","kpoints_limit",0);
 	std::string detectorName = mainReader.Get("DETECTION","detector", "missing");
 	std::transform(detectorName.begin(), detectorName.end(),detectorName.begin(), ::toupper);
@@ -99,6 +106,24 @@ ProgramFlowFacade *FacadeFactory::constructFacade(std::string mainOptionsFilePat
 			detector_ = new SURF_detector();
 			detectorOptions_ = SURF_detectorOptions().getConfiguration(detDscReader, DET_NAME( alg_types:: DET_SURF ) );
 			break;
+		case DET_HASH( alg_types:: DET_HARRIS ):
+			detector_ = new HARRIS_detector();
+			detectorOptions_ = HARRIS_detectorOptions().getConfiguration(detDscReader, DET_NAME( alg_types:: DET_HARRIS ) );
+			break;
+		case DET_HASH( alg_types:: DET_MSER ):
+			detector_ = new MSER_detector();
+			detectorOptions_ = MSER_detectorOptions().getConfiguration(detDscReader, DET_NAME( alg_types:: DET_MSER ) );
+			break;
+		case DET_HASH( alg_types:: DET_AGAST ):
+			detector_ = new AGAST_detector();
+			detectorOptions_ = AGAST_detectorOptions().getConfiguration(detDscReader, DET_NAME( alg_types:: DET_AGAST ) );
+			break;
+		case DET_HASH( alg_types:: DET_ASIFT ):
+			detector_ = new ASIFT_detector_descriptor();
+			detectorOptions_ = ASIFT_detectorOptions().getConfiguration(detDscReader, DET_NAME( alg_types:: DET_ASIFT ) );
+			(dynamic_cast<ASIFT_detectorOptions*>(detectorOptions_) )->nfeatures = keyPointsLimit;
+			ASIFTFLAG = true;
+			break;
 		default:
 			std::cerr << "OPTIONS PARSING: " << "unsupported/missing detector " << detectorName.c_str() << "\n";
 			exit(1);
@@ -125,6 +150,21 @@ ProgramFlowFacade *FacadeFactory::constructFacade(std::string mainOptionsFilePat
 		case DSC_HASH( alg_types:: DSC_PI ):
 			descriptor_ = new PI_descriptor();
 			descriptorOptions_ = PI_descriptorOptions().getConfiguration(detDscReader, DSC_NAME( alg_types:: DSC_PI ) );
+			break;
+		case DSC_HASH( alg_types:: DSC_FREAK ):
+			descriptor_ = new FREAK_descriptor();
+			descriptorOptions_ = FREAK_descriptorOptions().getConfiguration(detDscReader, DSC_NAME( alg_types:: DSC_FREAK ) );
+			break;
+		case DSC_HASH( alg_types:: DSC_ASIFT ):
+			// allowed only when ASIFT detector was used.
+			if( !ASIFTFLAG )
+			{
+				std::cerr << "OPTIONS PARSING: " << "ASIFT descriptor allowed only with ASIFT detector.\n"
+															"Consider using SIFT descriptor." << "\n";
+				exit(1);
+			}
+			descriptor_ = dynamic_cast< ASIFT_detector_descriptor* >(detector_);
+			descriptorOptions_ = ASIFT_descriptorOptions().getConfiguration(detDscReader, DSC_NAME( alg_types:: DSC_ASIFT ) );
 			break;
 		default:
 			std::cerr << "OPTIONS PARSING: " << "unsupported/missing descriptor " << descriptorName.c_str() << "\n";
@@ -163,5 +203,5 @@ ProgramFlowFacade *FacadeFactory::constructFacade(std::string mainOptionsFilePat
 
 
 	return new ProgramFlowFacade(detectorOptions_,detector_,descriptorOptions_,descriptor_,homographyGetter_,
-								 keysMatcherOptions_,keysMatcher_,descMatcherOptions_,descMatcher_,keyPointsLimit);
+								 keysMatcherOptions_,keysMatcher_,descMatcherOptions_,descMatcher_,keyPointsLimit,ASIFTFLAG);
 }

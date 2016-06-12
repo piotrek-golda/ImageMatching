@@ -20,11 +20,15 @@ namespace alg_types
 		DET_FAST = 0,
 		DET_ORB = 1,
 		DET_SIFT = 2,
-		DET_SURF = 3
+		DET_SURF = 3,
+		DET_HARRIS = 4,
+		DET_MSER = 5,
+		DET_AGAST = 6,
+		DET_ASIFT = 7
 	};
 
 	constexpr const char* detector_names[] =
-			{"FAST_DET","ORB","SIFT","SURF"};
+			{"FAST_DET","ORB","SIFT","SURF","HARRIS_DET","MSER_DET", "AGAST_DET", "ASIFT_DET"};
 
 
 	enum descriptor_types
@@ -33,11 +37,13 @@ namespace alg_types
 		DSC_ORB = 1,
 		DSC_SIFT = 2,
 		DSC_SURF = 3,
-		DSC_PI = 4
+		DSC_PI = 4,
+		DSC_FREAK = 5,
+		DSC_ASIFT = 6
 	};
 
 	constexpr const char* deascriptor_names[] =
-			{"BRIEF_DSC","ORB","SIFT","SURF","PI_DSC"};
+			{"BRIEF_DSC","ORB","SIFT","SURF","PI_DSC","FREAK_DSC", "ASIFT_DSC"};
 
 	enum key_matcher_types
 	{
