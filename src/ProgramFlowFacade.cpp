@@ -6,9 +6,18 @@
 #include "MatchesChecker.h"
 #include "Matchers/SimpleDescriptionsMatcher.h"
 #include "Helpers.h"
+#include "DataCollector.h"
 
 int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homographyMat)
 {
+
+	this->descriptions_matches.clear();
+	this->key_points1.clear();
+	this->key_points2.clear();
+	this->key_points_transformed.clear();
+
+	DataCollector& collector = DataCollector::getDataCollector();
+
 	std::cout<< '\n';
 	std::cout<< "DETECTION: " << this->detector_->getName() << "\n";
 	//DETECTION
@@ -54,17 +63,15 @@ int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homogra
 	std::cout<< '\n';
 	std::cout<< "DESCRIPTION: " << this->descriptor_->getName() << "\n";
 	//DESCRIPTION
-
-	time_t start = time(NULL);
+	collector.startMeasuringTime();
 	#pragma omp sections
 	{
 		{this->descriptor_->describe(image1, this->key_points1, this->descriptions1, *(this->descriptorOptions_));}
 		#pragma omp section
 		{this->descriptor_->describe(image2, this->key_points2, this->descriptions2, *(this->descriptorOptions_));}
 	}
+	collector.stopMeasuringTime();
 
-	time_t finish = time(NULL);
-	std::cout<< finish - start << std::endl;
 	std::cout<<
 		"\nim1 descriptions size & number: " << this->descriptions1.size() <<
 		"\nim2 descriptions size & number: "<< this->descriptions2.size() << std::endl;
@@ -105,6 +112,7 @@ int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homogra
 	this->matches_found = MatchesChecker::check( this->true_matches, this->descriptions_matches );
 
 	std::cout << "TRUE MATCHES found through descriptions:\n" << this->matches_found << '\n';
+	collector.logResult(this->matches_found);
 
 //	for(int i = 0; i < descriptions_matches.size(); ++i)
 //	{

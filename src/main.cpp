@@ -9,6 +9,7 @@
 #include "Interfaces/FacadeAbstractFactory.h"
 #include "FacadeFactory.h"
 #include "Detectors/ASIFT/compute_asift_keypoints.h"
+#include "DataCollector.h"
 
 
 void printParams( cv::Algorithm* algorithm ) {
@@ -68,44 +69,69 @@ cv::Mat ReadMatFromTxt(std::string filename, int rows,int cols)
 
 int main(int argc, char** argv )
 {
-	if ( argc != 7 )
+	if ( argc != 6 )
 	{
 		std::cout<< "usage: ./" << argv[0]
-		<< " <Image1_Path> <Image2_Path> <Homography_File_Path> <mainConfig_File_Path>"
-		<< " <detectionDescriptionConfig_File_Path> <matchingConfig_File_Path>\n";
+		<< " <mainConfig_File_Path> <detectionDescriptionConfig_File_Path> <matchingConfig_File_Path> <outTimeFile> <outResultFile>"
+		<< "\n";
 		exit(1);
 	}
 	std::srand ( unsigned ( std::time(0) ) );
 
-//	printParams( cv::FeatureDetector::create("MSER"));
+	DataCollector& collector = DataCollector::getDataCollector();
+	std::string image1Path;
+	std::string image2Path;
+	std::string homographyPath;
 
 
+	FacadeAbstractFactory *factory = new FacadeFactory();
+	ProgramFlowFacade *facade = factory->constructFacade(argv[1], argv[2], argv[3]);
 
-	cv::Mat image1;
-	cv::Mat image2;
-	image1 = cv::imread( argv[1], 1 );
-	image2 = cv::imread( argv[2], 1 );
-
-
-	if ( !image1.data )
+	cout << "enter <Image1_Path> <Image2_Path> <Homography_File_Path> or 'q' if You want to finish\n";
+	do
 	{
-		std::cerr << "Wrong image1 data \n";
-		exit(1);
+
+		std::cin >> image1Path;
+		if(image1Path.compare("q") == 0)
+			break;
+		if(image1Path.compare("n") == 0)
+		{
+			collector.newMeasure();
+			continue;
+		}
+		std::cin >> image2Path;
+		if(image1Path.compare("q") == 0)
+			break;
+		std::cin >> homographyPath;
+		if(image1Path.compare("q") == 0)
+			break;
+
+		cv::Mat image1;
+		cv::Mat image2;
+		image1 = cv::imread(image1Path, 1);
+		image2 = cv::imread(image2Path, 1);
+
+
+		if (!image1.data)
+		{
+			std::cerr << "Wrong image1 data! type 'q' if You want to quit or 'n' if You want to start new measure\n";
+			continue;
+		}
+		if (!image2.data)
+		{
+			std::cerr << "Wrong image2 data! type 'q' if You want to quit\n";
+			continue;
+		}
+		cv::Mat hom;
+		hom = ReadMatFromTxt(homographyPath, 3, 3);
+
+		std::cout<< "Starting matching " << image1Path  << " with " << image2Path << std::endl;
+		facade->compute(image1, image2, hom);
+		std::cout<< "Finished matching " << image1Path  << " with " << image2Path << std::endl;
 	}
-	if ( !image2.data )
-	{
-		std::cerr << "Wrong image2 data \n";
-		exit(1);
-	}
-	cv::Mat hom;
-	hom = ReadMatFromTxt(argv[3], 3, 3);
+	while(true);
 
-	FacadeAbstractFactory* factory = new FacadeFactory();
-
-	ProgramFlowFacade* facade = factory->constructFacade(argv[4],argv[5],argv[6]);
-
-	facade->compute(image1,image2,hom);
-
+	collector.createCSV( argv[4], argv[5]);
 	delete facade;
 	delete factory;
 

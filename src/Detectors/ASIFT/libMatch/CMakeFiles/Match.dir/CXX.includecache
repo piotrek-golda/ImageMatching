@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/piotrek/Programming/PracaMGR/Detectors/ASIFT/libMatch/match.cpp
+match.h
+/home/piotrek/Programming/PracaMGR/Detectors/ASIFT/libMatch/match.h
+fstream
+-
+sstream
+-
+
+/home/piotrek/Programming/PracaMGR/Detectors/ASIFT/libMatch/match.h
+vector
+-
+
