@@ -66,7 +66,7 @@ for (( i=0;i<$DET_DSC_SIZE;i++)); do
 		
 		echo "EVD dataset"
 #		echo "EVD" >> ${RESULTS_DIR}/stderr.txt
-		./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} 1>>${RESULTS_DIR}/stdout.txt 2>>${RESULTS_DIR}/stderr.txt
+		./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} 1>>${RESULTS_DIR}/stdout.txt 2>>${RESULTS_DIR}/stderr.txt
 
 	done
 done
