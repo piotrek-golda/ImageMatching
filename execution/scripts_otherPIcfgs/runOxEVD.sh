@@ -45,29 +45,34 @@ touch ${RESULTS_DIR}/stdout.txt
 touch ${RESULTS_DIR}/stderr.txt
 > ${RESULTS_DIR}/stderr.txt
 
-if [ -d ${RESULTS_DIR}/oxford ]; then
-	rm -r ${RESULTS_DIR}/oxford
+if [ ! -d ${RESULTS_DIR}/oxford ]; then
+	mkdir ${RESULTS_DIR}/oxford
 fi
-mkdir ${RESULTS_DIR}/oxford
 
-if [ -d ${RESULTS_DIR}/EVD ]; then
-	rm -r ${RESULTS_DIR}/EVD
+if [ ! -d ${RESULTS_DIR}/EVD ]; then
+	mkdir ${RESULTS_DIR}/EVD
 fi
-mkdir ${RESULTS_DIR}/EVD
 
 for (( i=0;i<$DET_DSC_SIZE;i++)); do
 	for (( j=0;j<$OTHER_CONF_SIZE;j++)); do
-		echo "=============================================================="
-		echo "Starting maching ${DET_DSC[${i}]} with ${OTHER_CONF[${j}]} dsc-det config."
-		echo "=============================================================="
-		echo "OXFORD dataset"
-#		echo "OXFORD" >> ${RESULTS_DIR}/stderr.txt
-		./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} 1>>${RESULTS_DIR}/stdout.txt 2>>${RESULTS_DIR}/stderr.txt
+			echo "=============================================================="
+			echo "Starting maching ${DET_DSC[${i}]} with ${OTHER_CONF[${j}]} dsc-det config."
+			echo "=============================================================="
+		if [[ ! -r ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv ]]; then			
+			echo "OXFORD dataset"
+#			echo "OXFORD" >> ${RESULTS_DIR}/stderr.txt
+			./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} 1>>${RESULTS_DIR}/stdout.txt 2>>${RESULTS_DIR}/stderr.txt
+		else
+			echo  "${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv file found. Skipping configuration."
+		fi
 		
-		echo "EVD dataset"
-#		echo "EVD" >> ${RESULTS_DIR}/stderr.txt
-		./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} 1>>${RESULTS_DIR}/stdout.txt 2>>${RESULTS_DIR}/stderr.txt
-
+		if [[ ! -r ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv ]]; then
+			echo "EVD dataset"
+#			echo "EVD" >> ${RESULTS_DIR}/stderr.txt
+			./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} 1>>${RESULTS_DIR}/stdout.txt 2>>${RESULTS_DIR}/stderr.txt
+		else
+			echo  "${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv file found. Skipping configuration."
+		fi
 	done
 done
 
