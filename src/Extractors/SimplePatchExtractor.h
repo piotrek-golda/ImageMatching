@@ -6,12 +6,15 @@
 #define DESCRIPTORDETECTOR_TESTER_SIMPLEPATCHEXTRACTOR_H
 
 
+#include <mutex>
 #include "../Interfaces/PatchExtractor.h"
 
 class SimplePatchExtractor : public PatchExtractor
 {
 private:
+	std::mutex mtx{};
 	const char* extractor_name = "SimpleExtractor";
+
 
 public:
 	virtual const char *getName();

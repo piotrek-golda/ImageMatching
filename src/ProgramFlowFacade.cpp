@@ -138,14 +138,33 @@ int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homogra
 
 //	cv::Mat img_keypoints_1; cv::Mat img_keypoints_2; cv::Mat img_keypoints_3;
 //	std::vector<cv::KeyPoint> kpt;
-//	for(int i = 0; i < key_points_transformed.size(); ++i)
-//		kpt.push_back( cv::KeyPoint(key_points_transformed[i], 2.) );
+////	for(int i = 0; i < key_points_transformed.size(); ++i)
+////		kpt.push_back( cv::KeyPoint(key_points_transformed[i], 2.) );
 //	cv::drawKeypoints( image1, key_points1, img_keypoints_1, cv::Scalar(256,0,0), cv::DrawMatchesFlags::DEFAULT );
-//	cv::drawKeypoints( image2, key_points2, img_keypoints_2, cv::Scalar(0,256,0), cv::DrawMatchesFlags::DEFAULT );
-//	cv::drawKeypoints( image2, kpt, img_keypoints_3, cv::Scalar(0,0,256), cv::DrawMatchesFlags::DEFAULT );
-//	imshow("Keypoints 1", img_keypoints_1 );
+////	cv::drawKeypoints( image2, key_points2, img_keypoints_2, cv::Scalar(0,256,0), cv::DrawMatchesFlags::DEFAULT );
+////	cv::drawKeypoints( image2, kpt, img_keypoints_3, cv::Scalar(0,0,256), cv::DrawMatchesFlags::DEFAULT );
+//	std::stringstream ss;
+//	ss << this->detector_->getName() << "_keypoints.png";
+////	imshow(ss.str(), img_keypoints_1 );
+//	imwrite( ss.str() , img_keypoints_1 );
+
 //	imshow("Keypoints 2", img_keypoints_2 );
+//	imwrite("Keypoints 2.png", img_keypoints_2 );
 //	imshow("Keypoints 3", img_keypoints_3 );
+//	imwrite("Keypoints 3.png", img_keypoints_3 );
+//
+//	std::vector<cv::DMatch> CVmatches;
+//	for( auto match : this->true_matches )
+//	{
+//		CVmatches.push_back( cv::DMatch( match.first, match.second, 0. ) );
+//	}
+//
+//	cv::Mat imgMatches;
+//	cv::drawMatches(image1,key_points1,image2,key_points2,CVmatches, imgMatches );
+//	imshow("Matches", imgMatches);
+//	imwrite("Matches.png", imgMatches);
+
+
 //	cv::waitKey(0);
 
 

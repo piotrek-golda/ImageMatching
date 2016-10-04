@@ -19,7 +19,6 @@ public:
 
 	virtual DescriptorOptions *getConfiguration(INIReader cfgFile, std::string section);
 };
-
 class FREAK_descriptor : public Descriptor
 {
 private:

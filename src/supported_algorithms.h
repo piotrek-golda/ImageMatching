@@ -39,11 +39,12 @@ namespace alg_types
 		DSC_SURF = 3,
 		DSC_PI = 4,
 		DSC_FREAK = 5,
-		DSC_ASIFT = 6
+		DSC_ASIFT = 6,
+		DSC_MULTI = 7
 	};
 
 	constexpr const char* deascriptor_names[] =
-			{"BRIEF_DSC","ORB","SIFT","SURF","PI_DSC","FREAK_DSC", "ASIFT_DSC"};
+			{"BRIEF_DSC","ORB","SIFT","SURF","PI_DSC","FREAK_DSC", "ASIFT_DSC", "MULTI_DSC"};
 
 	enum key_matcher_types
 	{

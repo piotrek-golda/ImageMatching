@@ -4,6 +4,7 @@
 
 #include <typeinfo>
 #include <iomanip>
+#include <mutex>
 #include "PI_descriptor.h"
 #include "../Interfaces/PatchExtractor.h"
 #include "../Extractors/SimplePatchExtractor.h"
@@ -20,17 +21,17 @@ void PI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_poin
 	PI_descriptorOptions opts;
 	try
 	{
-		opts = static_cast< PI_descriptorOptions& >(options);
+		opts = static_cast< PI_descriptorOptions & >(options);
 	}
-	catch(const std::bad_cast& e)
+	catch (const std::bad_cast &e)
 	{
-		std::cerr<< "DESCRIPTION:\t" << "Error while casting options object in " << this->descriptor_name << "!\n";
+		std::cerr << "DESCRIPTION:\t" << "Error while casting options object in " << this->descriptor_name << "!\n";
 		exit(1);
 	}
-	std::pair<double,double>* limits = NULL;
-	if( opts.minDiagramLimits < opts.maxDiagramLimits )
+	std::pair<double, double> *limits = NULL;
+	if (opts.minDiagramLimits < opts.maxDiagramLimits)
 	{
-		limits = new std::pair<double,double>(opts.minDiagramLimits, opts.maxDiagramLimits);
+		limits = new std::pair<double, double>(opts.minDiagramLimits, opts.maxDiagramLimits);
 	}
 	PI::PersistantImageParams params;
 	params.normType = opts.normType;
@@ -42,11 +43,13 @@ void PI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_poin
 
 //	this->filterBoundKeyPoints(key_points,opts.patchSize,image.cols,image.rows);
 
-	PatchExtractor* extractor =  new SimplePatchExtractor();
+	PatchExtractor *extractor = new SimplePatchExtractor();
 
-	double* patch = new double[opts.patchSize*opts.patchSize];
-	double** dscs = new double*[key_points.size()];
+	double *patch = new double[opts.patchSize * opts.patchSize];
+	double **dscs = new double *[key_points.size()];
 	int dscSize;
+
+	std::mutex mtx;
 
 #pragma omp parallel for
 	for(int i = 0; i < key_points.size(); ++i)

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DataCollector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DataCollector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/BRIEF_descriptor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/BRIEF_descriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/FREAK_descriptor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/FREAK_descriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/MULTI_descriptor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/MULTI_descriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/ORB_descriptor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/ORB_descriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/PI_descriptor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/PI_descriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/PI_features/ComputePersistentImage.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/PI_features/ComputePersistentImage.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/PI_features/Norms.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/PI_features/Norms.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/PI_features/features_Persistant_Image.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/PI_features/features_Persistant_Image.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/SIFT_descriptor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/SIFT_descriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/SURF_descriptor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Descriptors/SURF_descriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/AGAST/agast.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/AGAST/agast_score.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/AGAST/agast_score.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/AGAST/agast_wrapper.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/AGAST_detector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/AGAST_detector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/compute_asift_keypoints.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/compute_asift_keypoints.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/demo_lib_sift.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/demo_lib_sift.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/filter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/filter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/flimage.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/flimage.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/fproj.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/fproj.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/frot.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/frot.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libMatch/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libMatch/match.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libMatch/match.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/computeH.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/homography.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/homography.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/matrix.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/matrix.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/numerics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/numerics.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/rodrigues.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/rodrigues.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/vector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/library.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/library.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/numerics1.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/numerics1.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/splines.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT/splines.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT_detector_descriptor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ASIFT_detector_descriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/FAST_detector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/FAST_detector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/HARRIS_detector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/HARRIS_detector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/MSER_detector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/MSER_detector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ORB_detector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/ORB_detector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/SIFT_detector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/SIFT_detector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/SURF_detector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Detectors/SURF_detector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Extractors/SimplePatchExtractor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Extractors/SimplePatchExtractor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FacadeFactory.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FacadeFactory.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Helpers.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Helpers.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/HomographyGetter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/HomographyGetter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/INIReader/INIReader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/INIReader/INIReader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/INIReader/ini.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/INIReader/ini.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/DescriptionsMatcher.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/Descriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/DescriptorOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/Detector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/DetectorOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/FacadeAbstractFactory.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/KeysMatcher.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Interfaces/PatchExtractor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Matchers/BruteForceDescriptionsMatcher.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Matchers/BruteForceDescriptionsMatcher.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Matchers/SimpleDescriptionsMatcher.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Matchers/SimpleDescriptionsMatcher.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Matchers/SimpleKeysMatcher.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Matchers/SimpleKeysMatcher.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/MatchesChecker.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/MatchesChecker.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ProgramFlowFacade.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ProgramFlowFacade.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/supported_algorithms.h" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/cilk" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/sanitizer" />
+          <root url="file:///usr/local/include" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/cilk" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include/sanitizer" />
+          <root url="file:///usr/local/include" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/numerics.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libMatch/CMakeLists.txt" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/computeH.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libMatch/match.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/numerics.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/fproj.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/library.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libMatch/match.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/demo_lib_sift.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/homography.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/flimage.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/matrix.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/splines.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/fproj.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/homography.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/rodrigues.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/demo_lib_sift.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/splines.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/compute_asift_keypoints.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/frot.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/rodrigues.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/flimage.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/vector.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/filter.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/numerics1.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/numerics1.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/frot.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/matrix.h" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/library.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/libNumerics/CMakeLists.txt" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/compute_asift_keypoints.cpp" />
+          <root url="file://$MODULE_DIR$/Detectors/ASIFT/filter.cpp" />
+        </excluded>
+      </library>
+    </orderEntry>
+  </component>
+</module>

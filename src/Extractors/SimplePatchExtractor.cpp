@@ -7,6 +7,7 @@
 #include <limits>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <mutex>
 
 void unpackSIFTOctave(const cv::KeyPoint& kpt, int& octave, int& layer, float& scale)
 {
@@ -44,9 +45,14 @@ void SimplePatchExtractor::extract(cv::Mat &image, cv::KeyPoint& kpoint, double 
 	cv::Mat patchMat;
 	cv::Mat patchMatScaled(image,patchBound);
 	if(shouldRotate)
+	{
 		rotateAndCrop(patchMatScaled,patchMat,kpoint.angle,kpsize);
+	}
 	else
+	{
 		rotateAndCrop(patchMatScaled,patchMat,0,kpsize);
+	}
+
 	cv::resize(patchMat,patchMatScaled, {size,size} );
 	cv::Mat patchMatGray;
 	cv::cvtColor(patchMatScaled, patchMatGray, CV_BGR2GRAY);
@@ -65,12 +71,24 @@ void SimplePatchExtractor::extract(cv::Mat &image, cv::KeyPoint& kpoint, double 
 //	kp1.push_back( kpoint );
 //	cv::Mat img;
 //	cv::drawKeypoints( image, kp1, img, cv::Scalar(0,256,256), /*cv::DrawMatchesFlags::DEFAULT*/ cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS );
-//
-//	imshow("Keypoint", img );
-//	imshow("Patch", patchMatGray );
-////	imshow("PatchBig", patchMatBig );
-//	cv::waitKey(0);
 
+//	{
+//
+//		std::unique_lock<std::mutex> lock(mtx);
+//
+//		std::vector<cv::KeyPoint> kp1;
+//		kp1.push_back( kpoint );
+//		cv::Mat img;
+//		cv::drawKeypoints( image, kp1, img, cv::Scalar(0,256,256), /*cv::DrawMatchesFlags::DEFAULT*/ cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS );
+//
+//		cv::imshow("IMG", image);
+//		cv::imwrite("IMG_2.png", image);
+//
+////		imshow("Keypoint", img );
+////	imshow("Patch", patchMatGray );
+//////	imshow("PatchBig", patchMatBig );
+//		cv::waitKey(0);
+//	}
 }
 
 const char *SimplePatchExtractor::getName()
