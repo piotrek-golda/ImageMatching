@@ -1,0 +1,221 @@
+Argument should be DescriptorDetector_tester executable!
+Wrong OXFORD_INPUT file!
+Wrong OXFORD_INPUT file!
+==============================================================
+Starting maching HARRIS_PI-ORB with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  1992 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2012 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching AGAST_PI-BRIEF with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2017 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2022 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching HARRIS_PI-SIFT with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching SIFT_PI-BRIEF with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2107 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2112 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching AGAST_PI-FREAK with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2117 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2122 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching HARRIS_PI-SURF with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching SIFT_PI-FREAK with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2139 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2145 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching AGAST_PI-ORB with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2150 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2155 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching SIFT_PI-ORB with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2160 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2165 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching AGAST_PI-SIFT with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching MSER_PI-BRIEF with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2181 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2187 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching SIFT_PI-SIFT with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching AGAST_PI-SURF with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching MSER_PI-FREAK with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2216 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2222 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching SIFT_PI-SURF with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching ASIFT_PI-ASIFT with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching MSER_PI-ORB with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2249 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2255 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching ASIFT_PI-BRIEF with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2260 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2265 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching MSER_PI-SIFT with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching SURF_PI-BRIEF with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2286 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2291 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching ASIFT_PI-FREAK with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2296 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2302 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching MSER_PI-SURF with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching SURF_PI-FREAK with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2317 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2322 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching ASIFT_PI-ORB with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2327 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2333 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching SURF_PI-ORB with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2338 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2343 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching ASIFT_PI-SIFT with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching ORB_PI-BRIEF with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching SURF_PI-SIFT with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching ASIFT_PI-SURF with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching ORB_PI-FREAK with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2397 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2402 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching SURF_PI-SURF with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching ORB_PI-ORB with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching HARRIS_PI-BRIEF with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2429 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2434 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching ORB_PI-SIFT with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
+==============================================================
+Starting maching HARRIS_PI-FREAK with default dsc-det config.
+==============================================================
+OXFORD dataset
+./runOxEVD_multi.sh: line 84:  2462 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/oxford/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${OXFORD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+EVD dataset
+./runOxEVD_multi.sh: line 84:  2467 Aborted                 (core dumped) ./$1 ${CONFIGS_DIR}/main_${DET_DSC[${i}]}.ini ${CONFIGS_DIR}/detdsc_${OTHER_CONF[${j}]}.ini ${CONFIGS_DIR}/matchingConfig.ini ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_times.csv ${RESULTS_DIR}/EVD/${DET_DSC[${i}]}_${OTHER_CONF[${j}]}_matches.csv < ${EVD_INPUT} >> ${RESULTS_DIR}/stdout.txt 2>> ${RESULTS_DIR}/stderr.txt
+==============================================================
+Starting maching ORB_PI-SURF with default dsc-det config.
+==============================================================
+OXFORD dataset
+EVD dataset
