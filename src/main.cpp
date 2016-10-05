@@ -69,13 +69,21 @@ cv::Mat ReadMatFromTxt(std::string filename, int rows,int cols)
 
 int main(int argc, char** argv )
 {
-	if ( argc != 6 )
+	if ( argc != 6 && argc != 7 )
 	{
 		std::cout<< "usage: ./" << argv[0]
-		<< " <mainConfig_File_Path> <detectionDescriptionConfig_File_Path> <matchingConfig_File_Path> <outTimeFile> <outResultFile>"
+		<< " <mainConfig_File_Path> <detectionDescriptionConfig_File_Path> <matchingConfig_File_Path> <outTimeFile> <outResultFile> opt:<figuresFolder>"
 		<< "\n";
 		exit(1);
 	}
+
+	std::string figFolder{""};
+
+	if( argc == 7 )
+	{
+		figFolder = argv[6];
+	}
+
 	std::srand ( unsigned ( std::time(0) ) );
 
 	DataCollector& collector = DataCollector::getDataCollector();
@@ -126,7 +134,7 @@ int main(int argc, char** argv )
 		hom = ReadMatFromTxt(homographyPath, 3, 3);
 
 		std::cout<< "Starting matching " << image1Path  << " with " << image2Path << std::endl;
-		facade->compute(image1, image2, hom);
+		facade->compute(image1, image2, hom, figFolder);
 		std::cout<< "Finished matching " << image1Path  << " with " << image2Path << std::endl;
 	}
 	while(true);

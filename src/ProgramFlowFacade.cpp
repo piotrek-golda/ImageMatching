@@ -2,13 +2,14 @@
 // Created by piotrek on 08.05.16.
 //
 
+#include <fstream>
 #include "ProgramFlowFacade.h"
 #include "MatchesChecker.h"
 #include "Matchers/SimpleDescriptionsMatcher.h"
 #include "Helpers.h"
 #include "DataCollector.h"
 
-int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homographyMat)
+int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homographyMat, std::string figureFolder)
 {
 
 	this->descriptions_matches.clear();
@@ -109,10 +110,10 @@ int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homogra
 
 	std::cout<< '\n';
 	//CHECK MATCHES
-	this->matches_found = MatchesChecker::check( this->true_matches, this->descriptions_matches );
+	MatchesChecker::check( this->true_matches, this->descriptions_matches, this->matches_found );
 
-	std::cout << "TRUE MATCHES found through descriptions:\n" << this->matches_found << '\n';
-	collector.logResult(this->matches_found);
+	std::cout << "TRUE MATCHES found through descriptions:\n" << this->matches_found.size() << '\n';
+	collector.logResult(this->matches_found.size() );
 
 //	for(int i = 0; i < descriptions_matches.size(); ++i)
 //	{
@@ -152,24 +153,48 @@ int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homogra
 //	imwrite("Keypoints 2.png", img_keypoints_2 );
 //	imshow("Keypoints 3", img_keypoints_3 );
 //	imwrite("Keypoints 3.png", img_keypoints_3 );
-//
-//	std::vector<cv::DMatch> CVmatches;
-//	for( auto match : this->true_matches )
-//	{
-//		CVmatches.push_back( cv::DMatch( match.first, match.second, 0. ) );
-//	}
-//
-//	cv::Mat imgMatches;
-//	cv::drawMatches(image1,key_points1,image2,key_points2,CVmatches, imgMatches );
-//	imshow("Matches", imgMatches);
-//	imwrite("Matches.png", imgMatches);
 
 
-//	cv::waitKey(0);
+	if( figureFolder.compare("") != 0 )
+	{
+		std::vector<cv::DMatch> CVmatches;
+		for (auto match : this->matches_found)
+		{
+			CVmatches.push_back(cv::DMatch(match.first, match.second, 0.));
+		}
 
+		cv::Mat imgMatches;
+		cv::drawMatches(image1, key_points1, image2, key_points2, CVmatches, imgMatches);
+		std::stringstream ss;
+		ss << figureFolder << "/Matches.png";
+		imwrite(ss.str(), imgMatches);
 
+		ss.str("");
+		ss << figureFolder << "/im1Keys.txt";
+		std::ofstream im1Keys;
+		im1Keys.open (ss.str());
+		std::cout << "Creating file " << ss.str() << std::endl;
 
-	return this->matches_found;
+		ss.str(figureFolder);
+		ss << figureFolder << "/im2Keys.txt";
+		std::ofstream im2Keys;
+		im2Keys.open (ss.str());
+		std::cout << "Creating file " << ss.str() << std::endl;
+
+		for( auto match : this->matches_found )
+		{
+			im1Keys << key_points1[match.first].pt << ' ' << key_points1[match.first].size;
+			im2Keys << key_points2[match.second].pt << ' ' << key_points2[match.second].size;
+			im1Keys << '\n';
+			im2Keys << '\n';
+		}
+
+		im1Keys.close();
+		im2Keys.close();
+	}
+
+	return this->matches_found.size();
+
 }
 
 ProgramFlowFacade::~ProgramFlowFacade()

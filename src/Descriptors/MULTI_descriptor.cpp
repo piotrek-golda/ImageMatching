@@ -18,6 +18,20 @@ const char *MULTI_descriptor::getName()
 	return name.c_str();
 }
 
+#define F_EPSILON 1e-3f
+
+struct cmp
+{
+	bool operator()(const cv::Point_<float> &lhs, const cv::Point_<float> &rhs)
+	{
+		if ( std::fabs(lhs.x - rhs.x) >= F_EPSILON)
+			return lhs.x < rhs.x;
+		if ( std::fabs(lhs.y - rhs.y) >= F_EPSILON)
+			return lhs.y < rhs.y;
+		return false;
+	}
+};
+
 void MULTI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_points, cv::Mat &descriptions,
 								DescriptorOptions &options)
 {
@@ -39,10 +53,16 @@ void MULTI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_p
 		keysHashes.push_back( { key.pt.x, key.pt.y } );
 	}
 
+	std::vector< std::map< cv::Point2f, cv::Mat, cmp > > ptsDescriptions;
 	std::vector<cv::Mat> output;
+	ptsDescriptions.resize( descriptors.size() );
 	output.resize( descriptors.size() );
 	for( unsigned i = 0; i < descriptors.size(); ++i )
 	{
+//		for(auto& key : key_points )
+//		{
+//			std::cout << key.pt << ' ';
+//		} std::cout << std::endl;
 		cv::Mat out;
 		descriptors[i].dsc->describe(image,key_points,output[i], *(descriptors[i].dscOpt) );
 
@@ -50,12 +70,12 @@ void MULTI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_p
 
 		output[i].convertTo(output[i], CV_32F);
 
-		std::cout << "Mat size: " << output[i].size() << std::endl;
+//		std::cout << "Mat size: " << output[i].size() << std::endl;
 //		std::cout << output[i] << "\n\n";
 		cv::Size size{ output[i].size() };
 		size.width = opts.singleDescriptionLength;
 		cv::resize( output[i], out, size );
-		std::cout << "Mat size after resize: " << out.size() << std::endl;
+//		std::cout << "Mat size after resize: " << out.size() << std::endl;
 //		std::cout << out << "\n\n";
 
 		output[i] = cv::Mat(0,opts.singleDescriptionLength, output[i].type());
@@ -66,33 +86,44 @@ void MULTI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_p
 			cv::normalize( out.row(j), temp, 0.0, 256.0, opts.normType );
 			output[i].push_back(temp);
 		}
-		for(auto key : keysHashes )
-		{
-			std::cout << '[' << key.first << ", "<< key.second << "] ";
-		} std::cout << std::endl;
-		for(auto key : key_points )
-		{
-			std::cout << key.pt << ' ';
-		} std::cout << std::endl;
+//		for(auto key : keysHashes )
+//		{
+//			std::cout << '[' << key.first << ", "<< key.second << "] ";
+//		} std::cout << std::endl;
+//		for(auto& key : key_points )
+//		{
+//			std::cout << key.pt << ' ';
+//		} std::cout << std::endl;
+
 
 		unsigned hashIdx = 0;
 		for( unsigned j = 0; j < key_points.size(); ++j)
 		{
-			if( keysHashes[hashIdx].first != key_points[j].pt.x || keysHashes[hashIdx].second != key_points[j].pt.y  )
-			{
-				removeKeyDescription( output, hashIdx, i );
-				keysHashes.erase( keysHashes.begin() + hashIdx );
-				--j;
-			}
-			else
-			{
-				++hashIdx;
-			}
+			ptsDescriptions[i].insert( { (key_points[j].pt), output[i].row(j).clone() } );
 		}
 
 //		std::cout << output[i] << "\n\n";
 //		cv::waitKey(0);
 	}
+	output.clear();
+	output.resize( ptsDescriptions.size() );
+
+	for( unsigned i = 0; i < key_points.size(); ++i )
+	{
+		for( unsigned j = 0; j < ptsDescriptions.size(); ++j )
+		{
+			if(ptsDescriptions[j].find( (key_points[i].pt) ) != ptsDescriptions[j].end())
+			{
+				output[j].push_back( ptsDescriptions[j][ (key_points[i].pt) ] );
+			}
+			else
+			{
+				throw std::runtime_error("[Multi_descriptor] key point was not found in previous iterations of description. Should never happen! Most probably reason is that descriptor changes key point through description too much. Consider making F_EPSILON less restrictive.");
+			}
+		}
+	}
+
+
 //	cv::Mat combined;
 
 //	for( auto out : output )

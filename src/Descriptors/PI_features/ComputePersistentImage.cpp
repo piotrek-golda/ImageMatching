@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <cmath>
 #include <cfloat>
 #include "ComputePersistentImage.h"
 

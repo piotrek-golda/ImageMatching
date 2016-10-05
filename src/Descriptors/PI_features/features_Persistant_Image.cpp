@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <dlfcn.h>
 
 #include "ComputePersistentImage.h"

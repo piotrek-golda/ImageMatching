@@ -12,7 +12,7 @@ class MatchesChecker
 
 public:
 	//returns number of true matches amongs predicted matches
-	static int check( std::vector< std::pair<int,int> >& true_matches, std::vector< std::pair<int,int> >& predicted_matches);
+	static int check( std::vector< std::pair<int,int> >& true_matches, std::vector< std::pair<int,int> >& predicted_matches, std::vector<std::pair<int,int> >& out_matches);
 
 };
 

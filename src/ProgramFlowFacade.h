@@ -45,9 +45,9 @@ private:
 	std::vector< std::pair<int,int> > true_matches;
 	std::vector< std::pair<int,int> > descriptions_matches;
 
-	cv::Mat homography;
+	std::vector< std::pair<int,int> > matches_found;
 
-	int matches_found;
+	cv::Mat homography;
 
 public:
 
@@ -60,7 +60,7 @@ public:
 			  descriptor_(descriptor_), homographyGetter_(homographyGetter_), keysMatcherOptions_(keysMatcherOptions_),
 			  keysMatcher_(keysMatcher_), descMatcherOptions_(descMatcherOptions_), descMatcher_(descMatcher_), keyPointsLimit(kpointsLimit), DETDSCFLAG(DETDSCFLAG) { }
 
-	int compute( cv::Mat& image1, cv::Mat& image2, cv::Mat homographyMat = cv::Mat() );
+	int compute( cv::Mat& image1, cv::Mat& image2, cv::Mat homographyMat = cv::Mat(), std::string figureFolder = "" );
 
 	~ProgramFlowFacade();
 
