@@ -32,12 +32,22 @@ void MULTI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_p
 		exit(1);
 	}
 
+	std::vector< std::pair<float,float> > keysHashes;
+	keysHashes.reserve( key_points.size() );
+	for( auto key : key_points )
+	{
+		keysHashes.push_back( { key.pt.x, key.pt.y } );
+	}
+
 	std::vector<cv::Mat> output;
 	output.resize( descriptors.size() );
 	for( unsigned i = 0; i < descriptors.size(); ++i )
 	{
 		cv::Mat out;
 		descriptors[i].dsc->describe(image,key_points,output[i], *(descriptors[i].dscOpt) );
+
+
+
 		output[i].convertTo(output[i], CV_32F);
 
 		std::cout << "Mat size: " << output[i].size() << std::endl;
@@ -56,12 +66,40 @@ void MULTI_descriptor::describe(cv::Mat &image, std::vector<cv::KeyPoint> &key_p
 			cv::normalize( out.row(j), temp, 0.0, 256.0, opts.normType );
 			output[i].push_back(temp);
 		}
+		for(auto key : keysHashes )
+		{
+			std::cout << '[' << key.first << ", "<< key.second << "] ";
+		} std::cout << std::endl;
+		for(auto key : key_points )
+		{
+			std::cout << key.pt << ' ';
+		} std::cout << std::endl;
+
+		unsigned hashIdx = 0;
+		for( unsigned j = 0; j < key_points.size(); ++j)
+		{
+			if( keysHashes[hashIdx].first != key_points[j].pt.x || keysHashes[hashIdx].second != key_points[j].pt.y  )
+			{
+				removeKeyDescription( output, hashIdx, i );
+				keysHashes.erase( keysHashes.begin() + hashIdx );
+				--j;
+			}
+			else
+			{
+				++hashIdx;
+			}
+		}
+
 //		std::cout << output[i] << "\n\n";
 //		cv::waitKey(0);
 	}
 //	cv::Mat combined;
 
-//	std::cout << output[0].type() << ' ' << output[1].type() << std::endl;
+//	for( auto out : output )
+//	{
+//		std::cout << out.size() << std::endl;
+//	}
+
 	hconcat(output, descriptions);
 //	for( auto out : output )
 //	{
@@ -91,4 +129,25 @@ DescriptorOptions *MULTI_descriptorOptions::getConfiguration(INIReader cfgFile, 
 void MULTI_descriptor::append(DescriptorWrapper wrapper)
 {
 	descriptors.push_back( wrapper );
+}
+
+void MULTI_descriptor::removeKeyDescription(std::vector<cv::Mat>& descriptions, unsigned int keyIdx, unsigned int outputsNumber)
+{
+	for(int i = 0; i < outputsNumber; ++i )
+	{
+		cv::Mat tmp = descriptions[i].clone();
+		descriptions[i] = cv::Mat();
+		removeRow( tmp, keyIdx, descriptions[i] );
+	}
+}
+
+void MULTI_descriptor::removeRow(cv::Mat &matIn, unsigned int row, cv::Mat &matOut)
+{
+	std::cout << matIn.size() << std::endl;
+	std::cout << row << std::endl;
+	cv::Mat c;
+	matIn(cv::Range(0, matIn.rows - 2), cv::Range(0, matIn.cols)).copyTo(matOut);
+	matIn(cv::Range(matIn.rows - 1, matIn.rows), cv::Range(0, matIn.cols)).copyTo(c);
+
+	vconcat(matOut, c, matOut);
 }

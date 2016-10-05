@@ -45,6 +45,9 @@ public:
 	virtual void describe( cv::Mat& image, std::vector< cv::KeyPoint >& key_points,
 						   cv::Mat& descriptions, DescriptorOptions& options );
 
+	void removeKeyDescription(std::vector<cv::Mat>& descriptions, unsigned int keyIdx, unsigned int outputsNumber);
+
+	void removeRow(cv::Mat &matIn, unsigned int row, cv::Mat &matOut);
 };
 
 
