@@ -16,6 +16,7 @@ int ProgramFlowFacade::compute(cv::Mat &image1, cv::Mat &image2, cv::Mat homogra
 	this->key_points1.clear();
 	this->key_points2.clear();
 	this->key_points_transformed.clear();
+	this->matches_found.clear();
 
 	DataCollector& collector = DataCollector::getDataCollector();
 

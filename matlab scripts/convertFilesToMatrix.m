@@ -12,7 +12,7 @@ end
 csvMatchesFiles(1).name
 for i = 1:numfiles
     fileName = csvMatchesFiles(i).name;
-    label = regexp(fileName,'[A-Z0-9]+','match');
+    label = regexp(fileName,'[A-Z0-9\-]+','match');
     if length(label) == 2
         label = strcat(label(1), {' '}, label(2));
     else
@@ -52,7 +52,7 @@ end
 csvMatchesFiles(1).name
 for i = 1:numfiles
     fileName = csvMatchesFiles(i).name;
-    label = regexp(fileName,'[A-Z0-9]+','match');
+    label = regexp(fileName,'[A-Z0-9\-]+','match');
     if length(label) == 2
         label = strcat(label(1), {' '}, label(2));
     else
